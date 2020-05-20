@@ -1,0 +1,49 @@
+spring:
+  #出现错误时, 直接抛出异常(便于异常统一处理，否则捕获不到404)
+  mvc:
+    throw-exception-if-no-handler-found: true
+  # 会导致资源文件无法访问
+  resources:
+    add-mappings: false
+  datasource:
+    url: jdbc:mysql://localhost/study?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+  data:
+    mongodb:
+      uri: mongodb://springbucks:springbucks@47.101.190.44:27017/springbucks
+  cache:
+    type: redis
+    cache-names: coffee
+    redis:
+      time-to-live: 5000
+      cache-null-values: false
+  redis:
+    host: 47.101.190.44
+server:
+  port: 9090
+
+#mybatis
+mybatis:
+  configuration:
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
+  type-aliases-package: priv.patrick.springBucks.pojo
+  mapper-locations: classpath:mapper/**/*.xml
+#logback
+logging:
+  config: classpath:logback-spring.xml
+
+#pagehelper
+pagehelper:
+  offset-as-page-num: true
+  support-methods-arguments: true
+
+#redis
+redis:
+  host: 47.101.190.44
+  maxTotal: 5
+  maxIdle: 5
+  testOnBorrow: true
+
