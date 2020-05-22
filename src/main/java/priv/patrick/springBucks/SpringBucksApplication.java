@@ -16,8 +16,8 @@ import java.util.List;
 @SpringBootApplication
 @MapperScan(basePackages = "priv.patrick.springBucks.mapper")
 @Slf4j
-@EnableCaching(proxyTargetClass = true)
-public class SpringBucksApplication implements ApplicationRunner {
+//@EnableCaching(proxyTargetClass = true)
+public class SpringBucksApplication {
 //	@Autowired
 //	private MongoTemplate mongoTemplate;
 	@Autowired
@@ -44,17 +44,17 @@ public class SpringBucksApplication implements ApplicationRunner {
 
 	//cache
 
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		List<Coffee> coffees = coffeeService.selectAllCoffee();
-		for(int i=0 ;i<10 ;i++){
-			coffeeService.selectAllCoffee();
-		}
-//		coffeeService.reloadCoffee();
-		Thread.sleep(6000);
-		log.info("reload");
-		coffeeService.selectAllCoffee();
-	}
+//	@Override
+//	public void run(ApplicationArguments args) throws Exception {
+//		List<Coffee> coffees = coffeeService.selectAllCoffee();
+//		for(int i=0 ;i<10 ;i++){
+//			coffeeService.selectAllCoffee();
+//		}
+////		coffeeService.reloadCoffee();
+//		Thread.sleep(6000);
+//		log.info("reload");
+//		coffeeService.selectAllCoffee();
+//	}
 
 	//mongodb
 

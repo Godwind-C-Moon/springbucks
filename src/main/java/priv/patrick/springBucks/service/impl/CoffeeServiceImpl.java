@@ -1,6 +1,5 @@
 package priv.patrick.springBucks.service.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,9 @@ import java.util.List;
 @CacheConfig(cacheNames = "coffee")
 public class CoffeeServiceImpl implements CoffeeService {
     @Autowired
-    CoffeeMapper coffeeMapper;
+    private CoffeeMapper coffeeMapper;
+//    @Autowired
+//    private RedisTemplate<String,Coffee> redisTemplate;
 
     @Override
     public int save(Coffee coffee) {
@@ -30,6 +31,7 @@ public class CoffeeServiceImpl implements CoffeeService {
 
     @Override
     public Coffee findById(Long id) {
+//        HashOperations<String, String , Coffee> s = redisTemplate.opsForHash();
         return coffeeMapper.findById(id);
     }
 

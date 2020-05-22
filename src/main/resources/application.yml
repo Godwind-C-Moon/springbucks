@@ -10,17 +10,23 @@ spring:
     username: root
     password: 123456
     driverClassName: com.mysql.cj.jdbc.Driver
-  data:
-    mongodb:
-      uri: mongodb://springbucks:springbucks@47.101.190.44:27017/springbucks
-  cache:
-    type: redis
-    cache-names: coffee
-    redis:
-      time-to-live: 5000
-      cache-null-values: false
-  redis:
-    host: 47.101.190.44
+#  data:
+#    mongodb:
+#      uri: mongodb://springbucks:springbucks@47.101.190.44:27017/springbucks
+#  cache:
+#    type: redis
+#    cache-names: coffee
+#    redis:
+#      time-to-live: 5000
+#      cache-null-values: false
+#  redis:
+#    host: 47.101.190.44
+#    lettuce:
+#      pool:
+#        max-active: 3
+#        max-idle: 3
+
+#port
 server:
   port: 9090
 
@@ -31,6 +37,7 @@ mybatis:
     map-underscore-to-camel-case: true
   type-aliases-package: priv.patrick.springBucks.pojo
   mapper-locations: classpath:mapper/**/*.xml
+
 #logback
 logging:
   config: classpath:logback-spring.xml
@@ -40,10 +47,10 @@ pagehelper:
   offset-as-page-num: true
   support-methods-arguments: true
 
-#redis
-redis:
-  host: 47.101.190.44
-  maxTotal: 5
-  maxIdle: 5
-  testOnBorrow: true
+#原生redis
+#redis:
+#  host: 47.101.190.44
+#  maxTotal: 5
+#  maxIdle: 5
+#  testOnBorrow: true
 
